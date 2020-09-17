@@ -1,4 +1,5 @@
-﻿using Microsoft.Azure.Devices.Client;
+﻿using MAD = Microsoft.Azure.Devices;
+using Microsoft.Azure.Devices.Client;
 using Newtonsoft.Json;
 using SharedLibrares.Models;
 using System;
@@ -49,6 +50,12 @@ namespace SharedLibrares.Services
 
                 await deviceClient.CompleteAsync(payload);
             }
+        }
+
+        public static async Task SendMessageToDeviceAsync(MAD.ServiceClient serviceClient, string targetDeviceID, string message)
+        {
+            var payload = new MAD.Message(Encoding.UTF8.GetBytes(message));
+            await serviceClient.SendAsync(targetDeviceID, payload);
         }
 
     }

@@ -30,7 +30,24 @@ namespace SharedLibrares.Services
                 await deviceClient.SendEventAsync(payload);
 
                 Console.WriteLine($"Message sent: {json}");
-                await Task.Delay(10 * 1000);
+                await Task.Delay(60 * 1000);
+            }
+        }
+
+        public static async Task ReceiveMessageAsync(DeviceClient deviceClient)
+        {
+            while (true)
+            {
+                var payload = await deviceClient.ReceiveAsync();
+
+                if(payload == null)
+                    continue;
+                
+                
+                Console.WriteLine($"Message Received: {Encoding.UTF8.GetString(payload.GetBytes())}");
+                
+
+                await deviceClient.CompleteAsync(payload);
             }
         }
 

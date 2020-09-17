@@ -1,12 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SharedLibrares\SharedLibrares.csproj" />
+    <PackageReference Include="Microsoft.Azure.Devices.Client" Version="1.29.1-preview-002" />
   </ItemGroup>
 
 </Project>

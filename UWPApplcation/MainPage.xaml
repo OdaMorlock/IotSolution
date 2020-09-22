@@ -9,6 +9,9 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
+        <ListView>
+            <ListView Height="100" Width="100"/>
+        </ListView>
 
     </Grid>
 </Page>

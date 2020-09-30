@@ -16,7 +16,7 @@ namespace AzureFunctions
     public static class SendMessageToDevice
     {
 
-        private static readonly ServiceClient serviceClient = ServiceClient.CreateFromConnectionString(GetEnviormentVariable("IotHubConnection")); 
+        private static readonly ServiceClient serviceClient = ServiceClient.CreateFromConnectionString(Environment.GetEnvironmentVariable("IotHubConnection")); 
 
         [FunctionName("SendMessageToDevice")]
         public static async Task<IActionResult> Run(
